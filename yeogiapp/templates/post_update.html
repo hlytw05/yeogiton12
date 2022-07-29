@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="text-bg-dark p-3"><h3>게시글 정보 수정</h3></div>
+        <div class="text-bg-warning p-3"><h3>게시글 정보 수정</h3></div>
         <form action="{% url 'postupdate' post_detail.id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
                 {{ form }}
