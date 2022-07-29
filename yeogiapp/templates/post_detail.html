@@ -23,7 +23,7 @@
   <div class="container">
     {{ post_detail.title }}
     {{ post_detail.body }}
-
+    {{ post_detail.date }}
     {% if post_detail.spacePhoto %}         
         <img src="{{ post_detail.spacePhoto.url }}"> <br><br><br>
     {% else %}
@@ -51,10 +51,28 @@
     <span class="badge rounded-pill bg-light">{{ comment.date}}</span>    
     {{ comment }}
     {% if user == comment.user %}
+
     <a href="{% url 'commentupdate' comment.id %}"><span class="badge rounded-pill bg-warning" style="float: right;">수정</span></a>
     <a href="{% url 'commentdelete' comment.id %}"><span class="badge rounded-pill bg-warning" style="float: right;">삭제</span></a>
     <hr>
+
     {% endif %}
+    <hr>
+    {%for recom in comment.recomment_set.all%}
+    &nbsp;&nbsp;🐾{{ user.username }}:{{recom}} {{ comment.date }}<br>
+    {% endfor %}
+    <form method="post" action="{% url 'create_recomment' post_id comment.id %}">
+      {%csrf_token%}
+      <!-- {% for recom_form in recomment_form %}
+          {%if recom_form.label != 'Comment' %}
+          {{recom_form.label}} : {{recom_form}}
+          {%endif%}
+      {%endfor%} -->
+      {{ recomment_form }}
+      <input type="hidden" name="comment" value={{comment.id}}>
+      <input type="submit">
+  </form>
+<hr>
     {% endfor %}
 
     {% if user.is_authenticated %}
