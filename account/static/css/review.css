@@ -42,25 +42,55 @@ a{
     text-align: center;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    color:#333;
 }
 
 a:hover{
     border-radius: 50px;
     color:#fff;
-    background: #111;
+    background: #FFEA2F;
 }
 
 .login{
     border-radius: 50px;
-    border: 1px solid rgb(126, 126, 126);
+    border: 3px solid #FFEA2F;
     color:rgb(0, 0, 0);
     font-size: 20px;
 }
 
 .now{
     border-radius:50px;
-    background-color:#111;
+    background-color:#FFEA2F;
     color:#fff;
     font-size: 25px;
 }
+
+.reviewfloat{
+    overflow: hidden;
+    width:100%;
+    position: absolute;
+}
+
+.reviewcollection{
+    float:left;
+    width:33%;
+    margin-top: 40px; 
+}
+
+.reviewphoto{
+    width:270px;
+    height:320px;
+    background-color: rgb(169, 169, 169);
+    opacity: 0.5;
+    border-radius: 50px;
+    margin: 0 30px 30px 50px;
+    margin: 0 auto;
+}
+
+.reviewtitle{
+    font-weight: bold;
+    text-align: left;
+    padding: 50px 0 0 30px;
+    color:black;
+    opacity: 1.0;
+}
+
